@@ -1,15 +1,7 @@
-# import datetime
- 
-# def get_current_time():
-#    now = datetime.datetime.now()
-#    print(f'現在の日付と時刻は: {now}')
- 
-# if __name__== '__main__':
-#     get_current_time()
-
 import datetime 
 import tkinter as tk
 import tkinter.messagebox
+import tkinter.font as tkfont
 
 def show_current_time():
     now = datetime.datetime.now()
@@ -21,11 +13,16 @@ def main():
     root.title("時刻表示プログラム")
     root.geometry("300x150")  #ウィンドウの設定サイズ
 
+    # フォントの定義
+    # システムにインストールされている日本語フォントを指定
+    # 例: メイリオ, Yu Gothic, Hiragino Kaku Gothic ProNなど
+    japanese_font = tkfont.Font(family="メイリオ", size=12)
+
     # ボタンの作成
-    label = tk.Label(root, text="下のボタンをクリックしてください")
+    label = tk.Label(root, text="下のボタンをクリックしてください", font=japanese_font)
     label.pack(pady=10)
 
-    button = tk.Button(root, text="時刻を表示", command=show_current_time)
+    button = tk.Button(root, text="時刻を表示", command=show_current_time, font=japanese_font)
     button.pack(pady=10)
 
     #ウィンドウの実行
