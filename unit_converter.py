@@ -21,7 +21,7 @@ if input_lower.endswith('mm'):          # endswithは()ないの文字で終わ�
         inch_value = mm_value / INCH_TO_MM
         print(f"{mm_value} mm は {inch_value:.4f} インチです．")
     # except ValueError: もしValueErrorが出たら，こちらの処理を実行
-    except ValueError:
+    except ValueError:                                                  #tryでエラーが出たときにexceptで指定したエラーであればexceptの内容を実行する
         print("エラー: 数値を正しく認識できませんでした．入力例: '50mm'")
 
 # そうではなく，もし入力が"inch"で終わっていたら
@@ -37,7 +37,7 @@ elif input_lower.endswith('inch') :
     except ValueError:
         print("エラー: 数値を正しく認識できませんでした．入力例: '2inch'")
 
-        
+
 # 上のどちらの条件にも当てはまらなかったら
 else :
     print("エラー: 'mm' または 'inch' を単位として指定してください")
