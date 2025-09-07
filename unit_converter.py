@@ -7,12 +7,13 @@ INCH_TO_MM = 25.4                           # 定数の変数名は大文字
 user_input = input("変換したい数値を単位と一緒に入力してください (例: 50mm, 2inch): ")
 
 # 入力を扱いやすいように，すべて小文字に変換する
-input_lower = user_input.lower()
+input_lower = user_input.lower()        # 変数.メソッド()->user_inputという変数のツールボックスからlowerというメソッドの道具を取り出してこれをinput_lowerとなづける
+                                        # つまり，user_inputに入力された文字をlowerというすべて小文字に変換するメソッドを使った新しい文字列がinput_lowerとなる
 
 # もし入力が "mm" で終わっていたら
-if input_lower.endswith('mm'):
+if input_lower.endswith('mm'):          # endswithは()ないの文字で終わっていればTrue，違えばfalseを返す
     # "mm"の部分を取り除いて数値だけにする（例: "50mm" -> "50")
-    value_str = input_lower.replace('mm', '')
+    value_str = input_lower.replace('mm', '')       # replaceはmmという文字を探してその文字を空白に置き換えている
 
     # 文字列を数値に変換して計算
     mm_value = float(value_str)
