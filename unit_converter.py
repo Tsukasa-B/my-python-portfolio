@@ -15,21 +15,29 @@ if input_lower.endswith('mm'):          # endswithは()ないの文字で終わ�
     # "mm"の部分を取り除いて数値だけにする（例: "50mm" -> "50")
     value_str = input_lower.replace('mm', '')       # replaceはmmという文字を探してその文字を空白に置き換えている
 
-    # 文字列を数値に変換して計算
-    mm_value = float(value_str)
-    inch_value = mm_value / INCH_TO_MM
-    print(f"{mm_value} mm は {inch_value:.4f} インチです．")
+    try:
+        # 文字列を数値に変換して計算
+        mm_value = float(value_str)
+        inch_value = mm_value / INCH_TO_MM
+        print(f"{mm_value} mm は {inch_value:.4f} インチです．")
+    # except ValueError: もしValueErrorが出たら，こちらの処理を実行
+    except ValueError:
+        print("エラー: 数値を正しく認識できませんでした．入力例: '50mm'")
 
 # そうではなく，もし入力が"inch"で終わっていたら
 elif input_lower.endswith('inch') :
     # "inch"の部分を取り除いて数値だけにする（例: "2inch" -> "2")
     value_str = input_lower.replace('inch', '')
 
-    # 文字列を数値に変換して計算
-    inch_value = float(value_str)
-    mm_value = inch_value / INCH_TO_MM
-    print(f"{inch_value} inch は {mm_value:.4f} ミリメートルです．")
+    try:
+        # 文字列を数値に変換して計算
+        inch_value = float(value_str)
+        mm_value = inch_value / INCH_TO_MM
+        print(f"{inch_value} inch は {mm_value:.4f} ミリメートルです．")
+    except ValueError:
+        print("エラー: 数値を正しく認識できませんでした．入力例: '2inch'")
 
+        
 # 上のどちらの条件にも当てはまらなかったら
 else :
     print("エラー: 'mm' または 'inch' を単位として指定してください")
